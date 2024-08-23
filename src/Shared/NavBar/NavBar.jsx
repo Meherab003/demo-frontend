@@ -14,7 +14,7 @@ const NavBar = () => {
     </>
   );
   return (
-    <nav className="bg-violet-950 border-b-4 border-violet-500">
+    <nav className="bg-violet-950 border-b-4 border-violet-500 bg-dot">
       <div className="navbar md:w-11/12 mx-auto md:py-3 lg:py-5">
         <div className="navbar-start">
           <div className="dropdown">
@@ -62,7 +62,7 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn btn-sm md:btn-md bg-transparent hover:bg-white rounded-md border-2 border-violet-800 text-white lg:text-lg">
+          <a className="btn btn-sm md:btn-md bg-transparent hover:bg-white rounded-md border-2 border-violet-800 text-white lg:text-lg hover:text-violet-950">
             {" "}
             <FaRegUser />
             Sign In

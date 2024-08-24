@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Banner = () => {
     return (
-        <div className="flex flex-col md:flex-row items-center justify-between md:px-10 md:py-5 lg:px-20 lg:py-10 bg-violet-950 rounded-b-badge mb-10 text-white bg-dot">
+        <div className="flex flex-col md:flex-row items-center justify-between md:px-10 md:py-5 lg:px-20 lg:py-16 bg-violet-950 rounded-b-badge mb-10 text-white bg-dot">
             <div>
                 <div className="flex flex-col items-start justify-center gap-3 p-3 md:p-0">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold font-montserrat">Create, Submit And Rate Assignments</h2>

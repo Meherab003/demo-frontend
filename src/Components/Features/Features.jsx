@@ -8,7 +8,7 @@ const Features = () => {
     ]
     return (
         <div>
-            <h2 className="font-poppins text-sm md:text-lg font-medium text-violet-500 text-center">Available Features</h2>
+            <h2 className="font-poppins text-sm md:text-lg font-medium text-violet-500 text-center mb-2">Available Features</h2>
             <p className="font-montserrat text-lg md:text-2xl lg:text-3xl font-semibold text-violet-950 text-center w-11/12 md:w-4/5 lg:w-2/3 mx-auto">Our Group Has Some Uniques Features That Can Be Helpful For Your To Study Better</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3 lg:gap-5 py-3 md:py-7 lg:py-10 px-5 md:px-10 lg:px-16">
             {

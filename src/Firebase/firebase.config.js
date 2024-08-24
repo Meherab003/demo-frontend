@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyB3mWVdgLSNNFaFX4IHYIDGcOZDGFNSpIU",
-  authDomain: "genius-gala.firebaseapp.com",
-  projectId: "genius-gala",
-  storageBucket: "genius-gala.appspot.com",
-  messagingSenderId: "372254583485",
-  appId: "1:372254583485:web:e91a008909d863ff3325d4"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase

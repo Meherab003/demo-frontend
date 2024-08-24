@@ -42,7 +42,7 @@ const FAQ = () => {
           ))}
         </div>
         <div className="md:w-1/3">
-          <img src="/src/assets/bannerImg.png" alt="FAQ Image" />
+          <img src="https://i.ibb.co/SQTcrLV/banner-Img.png" alt="FAQ Image" />
         </div>
       </section>
     </div>

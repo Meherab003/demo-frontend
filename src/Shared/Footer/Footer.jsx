@@ -28,7 +28,7 @@ const Footer = () => {
           <div className="flex items-center justify-center gap-1 md:gap-2 flex-1">
             <img
               className="w-10 lg:w-14"
-              src="/src/assets/pagelogo.png"
+              src="https://i.ibb.co/zGGdH2S/pagelogo.png"
               alt="logo"
             />
             <p className="md:text-2xl lg:text-3xl font-semibold text-white flex-1">

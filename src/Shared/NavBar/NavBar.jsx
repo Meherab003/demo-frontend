@@ -14,18 +14,16 @@ const NavBar = () => {
       <li className="text-gray-100 font-medium">
         <NavLink to="/assignment">Assignments</NavLink>
       </li>
-      {
-        user&&
+      {user && (
         <li className="text-gray-100 font-medium">
-        <NavLink to="">Create Assignment</NavLink>
-      </li>
-      }
-      {
-        user &&
+          <NavLink to="/createassignment">Create Assignment</NavLink>
+        </li>
+      )}
+      {user && (
         <li className="text-gray-100 font-medium">
-        <NavLink to="">Pending Assignment</NavLink>
-      </li>
-      }
+          <NavLink to="">Pending Assignment</NavLink>
+        </li>
+      )}
     </>
   );
   return (
@@ -60,10 +58,13 @@ const NavBar = () => {
               {navLinks}
             </ul>
           </div>
-          <Link to='/' className="flex items-center justify-center gap-1 md:gap-2 flex-1">
+          <Link
+            to="/"
+            className="flex items-center justify-center gap-1 md:gap-2 flex-1"
+          >
             <img
               className="w-10 lg:w-14"
-              src="/src/assets/pagelogo.png"
+              src="https://i.ibb.co/zGGdH2S/pagelogo.png"
               alt="logo"
             />
             <p className="md:text-2xl lg:text-3xl font-semibold text-white flex-1">

@@ -2,16 +2,20 @@ import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 import { FaUser, FaGoogle } from "react-icons/fa";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const SignIn = () => {
   const {  signIn, signInWithGoogle } = useContext(AuthContext);
+  const navigate = useNavigate()
+  const location = useLocation()
+  const from = location.state;
 
   const handleGoogleSignIn = async () => {
     try {
       const result = await signInWithGoogle();
       toast.success("Signed In Successfully");
       console.log(result);
+      navigate(from, {replace: true})
     } catch (err) {
       console.log(err);
       toast.error("Some Error Occurred While SignIn");

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 import { FaUser, FaGoogle } from "react-icons/fa";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 const SignIn = () => {
@@ -98,7 +98,6 @@ const SignIn = () => {
           </div>
         </div>
       </div>
-      <Toaster />
     </div>
   );
 };

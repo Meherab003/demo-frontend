@@ -1,8 +1,11 @@
-import { Toaster } from "react-hot-toast";
+import { useContext } from "react";
+import toast from "react-hot-toast";
 import { FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 
 const Registration = () => {
+  const { createUser, updateUser } = useContext(AuthContext);
   const handleRegister = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -10,6 +13,17 @@ const Registration = () => {
     const photoURL = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
+
+    //crete user
+    try {
+      const result = await createUser(email, password);
+      await updateUser(name, photoURL);
+      console.log(result);
+      toast.success("Account Registered Successfully");
+    } catch (err) {
+      console.log(err);
+      toast.error("Unexpected Error Occurred While Register");
+    }
   };
   return (
     <div className="hero bg-dot">
@@ -76,11 +90,15 @@ const Registration = () => {
         </form>
         <div className="card-body w-full pt-0">
           <div className="mt-1 text-center text-sm md:text-[16px]">
-            <p>Already have an account? <Link className="text-violet-800 hover:underline" to='/signin'>SignIn</Link></p>
+            <p>
+              Already have an account?{" "}
+              <Link className="text-violet-800 hover:underline" to="/signin">
+                SignIn
+              </Link>
+            </p>
           </div>
         </div>
       </div>
-      <Toaster />
     </div>
   );
 };

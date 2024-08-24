@@ -8,19 +8,19 @@ const NavBar = () => {
   const { user, loading, logOut } = useContext(AuthContext);
   const navLinks = (
     <>
-      <li className="text-gray-100 font-medium">
+      <li className="text-gray-200 font-medium">
         <NavLink to="/">Home</NavLink>
       </li>
-      <li className="text-gray-100 font-medium">
-        <NavLink to="/assignment">Assignments</NavLink>
+      <li className="text-gray-200 font-medium">
+        <NavLink to="/assignments">Assignments</NavLink>
       </li>
       {user && (
-        <li className="text-gray-100 font-medium">
+        <li className="text-gray-200 font-medium">
           <NavLink to="/createassignment">Create Assignment</NavLink>
         </li>
       )}
       {user && (
-        <li className="text-gray-100 font-medium">
+        <li className="text-gray-200 font-medium">
           <NavLink to="">Pending Assignment</NavLink>
         </li>
       )}
@@ -28,7 +28,7 @@ const NavBar = () => {
   );
   return (
     <nav className="bg-violet-950 border-b-4 border-violet-500 bg-dot">
-      <div className="navbar md:w-11/12 mx-auto md:py-3 lg:py-5">
+      <div className="navbar md:w-[95%] mx-auto md:py-3 lg:py-5">
         <div className="navbar-start">
           <div className="dropdown">
             <div
@@ -53,7 +53,7 @@ const NavBar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="dropdown-content mt-3 z-[10] p-2 py-3 shadow backdrop-blur-md border border-violet-700 rounded-md w-52 "
+              className="dropdown-content mt-3 z-[10] p-2 py-3 shadow backdrop-blur-md border border-violet-700 rounded-md w-52 text-sm"
             >
               {navLinks}
             </ul>
@@ -67,13 +67,13 @@ const NavBar = () => {
               src="https://i.ibb.co/zGGdH2S/pagelogo.png"
               alt="logo"
             />
-            <p className="md:text-2xl lg:text-3xl font-semibold text-white flex-1">
+            <p className="md:text-2xl font-semibold text-white flex-1">
               Genius Gala
             </p>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="flex items-center justify-center lg:gap-10 px-1">
+          <ul className="flex items-center justify-center lg:gap-10 px-1 text-sm">
             {navLinks}
           </ul>
         </div>

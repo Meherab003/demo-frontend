@@ -13,7 +13,7 @@ const Banner = () => {
             <span className="text-yellow-500">Assignment</span> Webpage
           </h3>
           <Link
-            to="/assignment"
+            to="/assignments"
             className="btn btn-sm md:btn-md bg-transparent border-2 border-violet-700 hover:bg-violet-800 hover:bg-opacity-30 hover:border-violet-500 text-white hover:text-white  mt-2 md:mt-4 lg:mt-5"
           >
             Explore Assignments

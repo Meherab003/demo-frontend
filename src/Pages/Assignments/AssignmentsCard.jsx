@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { FaEdit } from "react-icons/fa";
+import { MdDeleteSweep } from "react-icons/md";
 
 const AssignmentsCard = ({ assignment }) => {
   const {
@@ -14,11 +16,11 @@ const AssignmentsCard = ({ assignment }) => {
 
   console.log(assignment);
   return (
-    <Link to={`/assignment/${_id}`} className="flex flex-col px-5 py-2 md:px-2 md:py-2 gap-2 group hover:bg-violet-200 backdrop-blur-sm border border-violet-400 rounded-lg">
+    <div className="flex flex-col px-5 py-2 md:px-2 md:py-2 gap-2 group hover:bg-violet-200 backdrop-blur-sm border border-violet-400 rounded-lg">
       <div className={`bg-[url('${thumbnail_url}')] bg-cover w-full h-44 md:h-52 rounded-lg transition duration-500 group-hover:rounded-none flex items-center justify-center`}>
-        <div className="text-white text-4xl font-bold hidden h-full w-full group-hover:bg-gray-900 group-hover:bg-opacity-50 group-hover:flex items-center justify-center"><p>Show Details</p></div>
+        <Link to={`/assignment/${_id}`} className="text-white text-4xl font-bold hidden h-full w-full group-hover:bg-gray-900 group-hover:bg-opacity-50 group-hover:flex items-center justify-center"><p>Show Details</p></Link>
       </div>
-      <div>
+      <div className="flex flex-col gap-2">
         <div className="flex justify-between items-center">
           <div className="flex gap-2 items-start">
             <div className="avatar">
@@ -36,8 +38,12 @@ const AssignmentsCard = ({ assignment }) => {
             <p className={`p-2 ${difficulty==="Hard" && 'bg-red-400'} ${difficulty==="Medium" && 'bg-yellow-400'} ${difficulty==="Easy" && 'bg-green-400'} rounded-lg font-semibold`}>{difficulty}</p>
           </div>
         </div>
+        <div className="flex justify-start gap-2 items-center">
+            <button className="btn btn-sm border-none bg-violet-400 text-black"><MdDeleteSweep className="text-lg"/>Delete</button>
+            <button className="btn btn-sm border-none bg-violet-400 text-black"><FaEdit />Edit</button>
+        </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

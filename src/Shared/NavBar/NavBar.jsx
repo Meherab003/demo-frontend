@@ -106,7 +106,7 @@ const NavBar = () => {
                   className="menu menu-sm dropdown-content mt-1 z-[10] p-2 shadow backdrop-blur-md rounded-md border border-violet-700 w-56"
                 >
                   <li>
-                    <Link className="justify-between text-xs font-semibold text-gray-100">
+                    <Link to='/submitted_assignment' className="justify-between text-xs font-semibold text-gray-100">
                       My Attempted Assignments
                     </Link>
                   </li>

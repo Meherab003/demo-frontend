@@ -16,7 +16,7 @@ const AllAssignments = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:p-10 bg-dot bg-violet-300">
       {assignments.map((assignment) => (
-        <AssignmentsCard key={assignment._id} assignment={assignment}></AssignmentsCard>
+        <AssignmentsCard key={assignment._id} assignment={assignment} getData={getData}></AssignmentsCard>
       ))}
     </div>
   );

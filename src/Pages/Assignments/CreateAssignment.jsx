@@ -16,7 +16,7 @@ const CreateAssignment = () => {
     const thumbnail_url = form.thumbnail_url.value;
     const email = form.email.value;
     const due_data = startDate;
-    const marks = form.marks.value;
+    const marks = parseInt(form.marks.value);
     const difficulty = form.difficulty.value;
     const description = form.description.value;
     const assignmentData = {
@@ -40,6 +40,7 @@ const CreateAssignment = () => {
     }catch(err){
         console.log(err);
     }
+    form.reset()
   };
   return (
     <div className="flex justify-center items-center min-h-[calc(100vh-306px)] py-12 bg-dot">

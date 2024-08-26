@@ -10,7 +10,7 @@ const AssignmentDetails = () => {
   const { user } = useContext(AuthContext);
   const [startDate, setStartDate] = useState(new Date());
   const [inputType, setInputType] = useState("text");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const assignment = useLoaderData();
   const {
     _id,
@@ -33,8 +33,9 @@ const AssignmentDetails = () => {
     const creator_email = creator_data?.email;
     const submit_date = startDate;
     const answer = form.answer.value;
-
+    const score = null;
     const status = "Pending";
+    const feedback = "Not Given Yet";
 
     const submittedAssignment = {
       assignmentID,
@@ -43,23 +44,28 @@ const AssignmentDetails = () => {
       title,
       due_data,
       marks,
+      score,
       difficulty,
       submit_date,
       status,
+      feedback,
       answer,
     };
     console.table(submittedAssignment);
 
-    try{
-        const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/submitted_assignment`, submittedAssignment)
-        console.log(data);
-        toast.success("Assignment Successfully Submitted")
-        navigate('/submitted_assignment')
-    }catch(err){
-        console.log(err);
-        toast.error("Some Error Occurred While Submitting")
+    try {
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_API_URL}/submitted_assignment`,
+        submittedAssignment
+      );
+      console.log(data);
+      toast.success("Assignment Successfully Submitted");
+      navigate("/submitted_assignment");
+    } catch (err) {
+      console.log(err);
+      toast.error("Some Error Occurred While Submitting");
     }
-    form.reset()
+    form.reset();
   };
   return (
     <div className="flex justify-center items-center p-3 md:p-10 bg-dot">

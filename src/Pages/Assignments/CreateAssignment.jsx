@@ -39,6 +39,7 @@ const CreateAssignment = () => {
         toast.success("Assignment Successfully Created")
     }catch(err){
         console.log(err);
+        toast.error("An Error Occurred While Updating")
     }
     form.reset()
   };

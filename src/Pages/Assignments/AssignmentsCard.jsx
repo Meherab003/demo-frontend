@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { FaEdit } from "react-icons/fa";
-import { MdDeleteSweep } from "react-icons/md";
+import { MdDeleteSweep, MdOutlinePreview } from "react-icons/md";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
@@ -22,28 +22,25 @@ const AssignmentsCard = ({ assignment, getData }) => {
   const handleDelete = async (id) => {
     if (creator_data?.email !== user?.email)
       return toast.error("Action Not Permitted");
-    try{
-        const {data} = await axios.delete(`${import.meta.env.VITE_API_URL}/assignment/${id}`)
-        console.log(data)
-        toast.success("Successfully Deleted")
-        getData()
-    }catch(err){
-        console.log(err);
-        toast.error("Some Error Occurred While Deleting")
+    try {
+      const { data } = await axios.delete(
+        `${import.meta.env.VITE_API_URL}/assignment/${id}`
+      );
+      console.log(data);
+      toast.success("Successfully Deleted");
+      getData();
+    } catch (err) {
+      console.log(err);
+      toast.error("Some Error Occurred While Deleting");
     }
   };
   return (
-    <div className="flex flex-col px-5 py-2 md:px-2 md:py-2 gap-2 group hover:bg-violet-200 backdrop-blur-sm  rounded-lg">
-      <div
-        className={`bg-[url('${thumbnail_url}')] bg-cover w-full h-44 md:h-52 rounded-lg transition duration-500 group-hover:rounded-none flex items-center justify-center`}
-      >
-        <Link
-          to={`/assignment/${_id}`}
-          className="text-white text-4xl font-bold hidden h-full w-full group-hover:bg-gray-900 group-hover:bg-opacity-50 group-hover:flex items-center justify-center"
-        >
-          <p>Show Details</p>
-        </Link>
-      </div>
+    <div className="flex flex-col px-5 py-2 md:px-2 md:py-2 gap-2 group  backdrop-blur-sm shadow-sm hover:shadow-violet-400 rounded-lg">
+      <img
+        src={thumbnail_url}
+        alt="Thumbnail Image"
+        className="w-full rounded-lg group-hover:rounded-none"
+      />
       <div className="flex flex-col gap-2">
         <div className="flex justify-between items-center">
           <div className="flex gap-2 items-start">
@@ -78,6 +75,13 @@ const AssignmentsCard = ({ assignment, getData }) => {
           </div>
         </div>
         <div className="flex justify-start gap-2 items-center">
+          <Link
+            to={`/assignment/${_id}`}
+            className="btn btn-sm border-none bg-violet-400 text-black"
+          >
+            <MdOutlinePreview className="text-lg" />
+            View
+          </Link>
           <button
             onClick={() => handleDelete(_id)}
             className="btn btn-sm border-none bg-violet-400 text-black"
@@ -85,7 +89,10 @@ const AssignmentsCard = ({ assignment, getData }) => {
             <MdDeleteSweep className="text-lg" />
             Delete
           </button>
-          <Link to={`/update/${assignment._id}`} className="btn btn-sm border-none bg-violet-400 text-black">
+          <Link
+            to={`/update/${assignment._id}`}
+            className="btn btn-sm border-none bg-violet-400 text-black"
+          >
             <FaEdit />
             Edit
           </Link>

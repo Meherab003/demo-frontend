@@ -9,7 +9,6 @@ import axios from "axios";
 const AssignmentDetails = () => {
   const { user } = useContext(AuthContext);
   const [startDate, setStartDate] = useState(new Date());
-  const [inputType, setInputType] = useState("text");
   const navigate = useNavigate();
   const assignment = useLoaderData();
   const {
@@ -30,9 +29,11 @@ const AssignmentDetails = () => {
     const form = e.target;
     const assignmentID = _id;
     const email = user?.email;
+    const submitted_by = user?.displayName;
     const creator_email = creator_data?.email;
     const submit_date = startDate;
     const answer = form.answer.value;
+    const note = form.note.value;
     const score = null;
     const status = "Pending";
     const feedback = "Not Given Yet";
@@ -40,6 +41,7 @@ const AssignmentDetails = () => {
     const submittedAssignment = {
       assignmentID,
       email,
+      submitted_by,
       creator_email,
       title,
       due_data,
@@ -50,6 +52,7 @@ const AssignmentDetails = () => {
       status,
       feedback,
       answer,
+      note,
     };
     console.table(submittedAssignment);
 
@@ -169,54 +172,29 @@ const AssignmentDetails = () => {
                         </div>
                       </div>
                       {/* ==============================Answer Input=========================== */}
-                      <div className="flex gap-4 mt-4">
-                        <label className="text-gray-700 flex items-center">
-                          <input
-                            type="radio"
-                            value="text"
-                            checked={inputType === "text"}
-                            onChange={() => setInputType("text")}
-                            className="mr-2 radio radio-primary"
-                          />
-                          Write Answer
+                      <div className="flex flex-col gap-2 mt-4">
+                        <label className="text-gray-700" htmlFor="answer">
+                          Upload Answer
                         </label>
-                        <label className="text-gray-700 flex items-center">
-                          <input
-                            type="radio"
-                            value="file"
-                            checked={inputType === "file"}
-                            onChange={() => setInputType("file")}
-                            className="mr-2 radio radio-primary"
-                          />
-                          Upload File
-                        </label>
+                        <input
+                          id="answer"
+                          type="file"
+                          name="answer"
+                          accept=".pdf,.doc,.docx"
+                          className="block w-full px-4 py-2 mt-2 text-gray-700 bg-violet-100 border border-violet-200 rounded-md focus:border-violet-400 focus:ring-violet-300 focus:ring-opacity-40 focus:outline-none focus:ring"
+                        />
                       </div>
 
-                      {inputType === "text" ? (
-                        <div className="flex flex-col gap-2 mt-4">
-                          <label className="text-gray-700" htmlFor="answer">
-                            Answer
-                          </label>
-                          <textarea
-                            className="block w-full px-4 py-2 mt-2 text-gray-700 bg-violet-100 border border-violet-200 rounded-md focus:border-violet-400 focus:ring-violet-300 focus:ring-opacity-40 focus:outline-none focus:ring"
-                            name="answer"
-                            id="answer"
-                          ></textarea>
-                        </div>
-                      ) : (
-                        <div className="flex flex-col gap-2 mt-4">
-                          <label className="text-gray-700" htmlFor="answer">
-                            Upload Answer
-                          </label>
-                          <input
-                            id="answer"
-                            type="file"
-                            name="answer"
-                            accept=".pdf,.doc,.docx"
-                            className="block w-full px-4 py-2 mt-2 text-gray-700 bg-violet-100 border border-violet-200 rounded-md focus:border-violet-400 focus:ring-violet-300 focus:ring-opacity-40 focus:outline-none focus:ring"
-                          />
-                        </div>
-                      )}
+                      <div className="flex flex-col gap-2 mt-4">
+                        <label className="text-gray-700" htmlFor="note">
+                          Note
+                        </label>
+                        <textarea
+                          className="block w-full px-4 py-2 mt-2 text-gray-700 bg-violet-100 border border-violet-200 rounded-md focus:border-violet-400 focus:ring-violet-300 focus:ring-opacity-40 focus:outline-none focus:ring"
+                          name="note"
+                          id="note"
+                        ></textarea>
+                      </div>
 
                       {/* ====================================================================== */}
                       <div className="flex justify-end mt-6">

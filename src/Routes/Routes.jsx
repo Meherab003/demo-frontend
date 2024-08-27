@@ -9,11 +9,14 @@ import AllAssignments from "../Pages/Assignments/AllAssignments";
 import AssignmentDetails from "../Pages/Assignments/AssignmentDetails";
 import MySubmittedAssignments from "../Pages/Assignments/MySubmittedAssignments";
 import UpdateAssignment from "../Pages/Assignments/UpdateAssignment";
+import PendingAssignmentSubmits from "../Pages/Assignments/PendingAssignmentSubmits";
+import ErrorPage from "../Pages/Error/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -63,6 +66,10 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`${import.meta.env.VITE_API_URL}/assignment/${params.id}`),
       },
+      {
+        path: '/pending_assignments',
+        element: <PrivateRoutes><PendingAssignmentSubmits /></PrivateRoutes>
+      }
     ],
   },
 ]);
